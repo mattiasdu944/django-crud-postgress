@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* VARIABLES */
+:root{
+    /* colores */
+    --bg-body:#161616;
+    --indigo-color:rgb(109, 43, 157);
+    --django-color:rgb(91, 194, 91);
+    --text-color:rgb(237, 237, 237);
+
+    /* tipografia */
+    --h1-size:3rem;
+    --h2-size:2.5rem;
+    --h3-size:2rem;
+    --h4-size:1.5rem;
+    --text-size:1rem;
+
+    --bold-weight:700;
+    --semi-weight:600;
+    --small-weight:500;
+}
+
+/* RESET CSS */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: all .3s ease-in-out;
+    font-size: 1rem;
+}
+
+body{
+    background-color: var(--bg-body);
+    color: var(--text-color);
+}
+
+h1,h2, h3, h4{
+    font-weight: var(--bold-weight);
+}
+
+h1{
+    font-size: var(--h1-size);
+}
+
+h2{
+    font-size: var(--h2-size);
+}
+
+h3{
+    font-size: var(--h3-size);
+}
+
+h4{
+    font-size: var(--h4-size);
+}
+/* HEADER */
+header{
+    padding-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+header h1 span{
+    font-size: var(--h1-size);
+    color: var(--django-color);
+}
+
+/* MAIN */
+main{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 3rem;
+}
+
+.main__container{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+button{
+    align-items: center;
+    background-color: var(--indigo-color);
+    border: none;
+    border-radius: .25rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+    font-weight: 500;
+    justify-content: center;
+    padding: .5rem 2rem;
+}
+
+button:hover{
+    background-color: rgb(101, 40, 145);
+    transition: all .3s ease-in-out;
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
+button:hover i{
+    transform: translateX(5px);
+}
+
+form{
+    margin: auto;
+    max-width: 400px;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+input{
+    border-radius: .25rem;
+    background-color: #2a2a2a;
+    padding: .5rem 1rem;
+    color: aliceblue;
+    border: none;
+}
+
+input::placeholder{
+    color: rgb(144, 144, 144);
+    
+}
+
+textarea{
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: .25rem;
+    color: var(--text-color);
+    padding: .5rem 1rem;
+}
+
+textarea::placeholder{
+    color: rgb(144, 144, 144);
+}
+
+.main__list__card h2{
+    text-align: center;
+}
+
+.main__list__card{
+    background-color: #2a2a2a;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-radius: .25rem;
+}

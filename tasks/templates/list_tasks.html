@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>To Do Django | Mattias Duarte</title>
+</head>
+
+<body>
+    <header>
+        <h1>To Do <span>Django</span></h1>
+        <h4>Written, directed, coded by &copy;Matias Duarte</h4>
+    </header>
+    <main>
+        <div class="main__container grid">
+            <div class="main__form">
+                <form action="{% url  'create_task' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="title" placeholder="Write a title"">
+                    <textarea name=" description" rows="10" placeholder="Write a description"></textarea>
+                    <button type="submit">
+                        Save Task
+                        <i class="uil uil-message"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="main__list">
+                <div class="main__list__card">
+                    {% for task in tasks %}
+                    <div class="card__title">
+                        <h3>{{task.title}}</h3>
+                    </div>
+                    <div class="card__description">
+                        <p>
+                            {{task.description}}
+                        </p>
+                    </div>
+                    <form action="{% url 'delete_task' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <button>Eliminar</button>
+                    </form>
+                    {% empty %}
+                    <h2>Sin tareas</h2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
